@@ -65,6 +65,11 @@ jobs:
       - name: Verify AWS CLI
         run: aws sts get-caller-identity
 
+      - name: Install EB CLI
+        run: |
+          pip install --upgrade pip
+          pip install awsebcli
+
       - name: Deploy to Elastic Beanstalk
         run: |
           zip -r deploy.zip . -x '*.git*'
